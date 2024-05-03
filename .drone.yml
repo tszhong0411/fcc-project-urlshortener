@@ -1,0 +1,21 @@
+kind: pipeline
+name: default
+type: docker
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: build-and-deploy
+    image: docker:23.0.1-cli
+    commands:
+      - docker compose up -d --build --force-recreate
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
