@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 
 // Basic Configuration
-const port = process.env.PORT || 3002
+const port = process.env.PORT || 3000
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
